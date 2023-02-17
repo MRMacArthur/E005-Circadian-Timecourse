@@ -59,8 +59,8 @@ obDataAllStats <- obDataAllNorm %>%
 
 DT::datatable(obData_neg_stats)  
 
-obData_neg_norm %>%
-  filter(compound == "Guanosine") %>%
+obDataAllNorm %>%
+  filter(compound == "C20:4(Arachidonic acid)") %>%
   ggplot(aes(x = as.numeric(Time), y = normLogIC, color = Group)) +
   geom_point() +
   stat_smooth(method='lm', formula = y~poly(x,4)) +

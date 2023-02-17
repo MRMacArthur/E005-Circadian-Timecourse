@@ -62,14 +62,14 @@ ageDataAllStats <- ageDataAllNorm %>%
 DT::datatable(ageDataAllStats)  
 
 ageDataAllNorm %>%
-  filter(compound == "Adenine") %>%
+  filter(compound == "C15:0") %>%
   ggplot(aes(x = as.numeric(Time), y = normLogIC, color = Group)) +
   geom_point(position = position_jitterdodge(jitter.width = 0.25,
                                              dodge.width = 0.5)) +
   stat_smooth(method='lm', formula = y~poly(x,4)) +
   scale_x_continuous(breaks = 0:6, labels = c("0600", "1000", "1400",
                                               "1800", "2200", "0200", "0600")) +
-  labs(x = "Time", y = "Median normalized log10 intensity", title = "Glucose") +
+  labs(x = "Time", y = "Median normalized log10 intensity", title = "C15:0") +
   annotate("rect", xmin=-Inf, xmax=0.5, ymin=-Inf, ymax=Inf, alpha=0.2, fill="gray") +
   annotate("rect", xmin=3.5, xmax=Inf, ymin=-Inf, ymax=Inf, alpha=0.2, fill="gray") +
   myTheme
